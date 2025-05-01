@@ -74,6 +74,8 @@ GET http://<IP_ADDRESS>:8080/luckynumbers/ticket=5
 
 ## File Structure
 - `luckynumbers.py`: Core script for downloading, analyzing, and generating numbers.
+- `luckynumbers_api.py` : API Script using a Flash App.
+- `requirements.txt`: Text file specifying the required dependencies.
 - `powerball.csv`: Downloaded CSV with historical Powerball data (overwritten on each run).
 - `README.md`: This documentation file.
 
