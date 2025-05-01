@@ -13,14 +13,20 @@ A Python 3 script that generates Powerball lottery numbers using historical winn
 - **Python 3**: Install from [python.org](https://www.python.org/downloads/). Ensure `python3` is available in your command line.
 - **Git**: Install from [git-scm.com](https://git-scm.com/download/win) for repository management.
 - **Internet Connection**: Required to download the Powerball CSV.
-- **Dependencies**: Python 3 libraries `pandas` and `requests`.
+- **Dependencies for Script**: Python 3 libraries `pandas` and `requests`.
+- **Dependencies for API**: Python 3 libraries `pandas`, `requests` and `flask`.
+
 
 ## Installation
+**Dependencies Installation**
+```bash
+pip install -r requirements.txt
+```
 
-No installation steps are required beyond ensuring prerequisites are met. Place `luckynumbers.py` in your project directory (e.g., `C:\Users\yourname\Projects\LuckyNumbers`) and run it as described in [Usage](#usage).
+**No** installation steps are required beyond ensuring prerequisites are met. Place `luckynumbers.py` in your project directory (e.g., `C:\Users\yourname\Projects\LuckyNumbers`) and run it as described in [Usage](#usage).
 
 ## Usage
-
+### Script
 1. **Run the Script**:
    ```bash
    python3 luckynumbers.py
@@ -44,9 +50,32 @@ No installation steps are required beyond ensuring prerequisites are met. Place 
 4. **Notes**:
    - If the CSV download fails, the script uses an existing local `powerball.csv` if available.
    - Invalid input for ticket count defaults to 1 ticket.
+### API Usage
+**EndPoint**
+```bash
+GET /luckynumbers/ticket=<number_of_tickets>
+```
+**Parameters**
+`<number_of_tickets>` – Number of lottery tickets to generate (integer between 1 and 100)
+**Example Request**
+```bash
+GET http://<IP_ADDRESS>:8080/luckynumbers/ticket=5
+```
+**Example Response**
+```json
+{
+  "requested_tickets": 5,
+  "lucky_numbers": [
+    { "main": [8, 15, 23, 34, 59], "powerball": 12 },
+    { "main": [4, 11, 19, 26, 61], "powerball": 7 }
+  ]
+}
+```
 
 ## File Structure
 - `luckynumbers.py`: Core script for downloading, analyzing, and generating numbers.
+- `luckynumbers_api.py` : API Script using a Flash App.
+- `requirements.txt`: Text file specifying the required dependencies.
 - `powerball.csv`: Downloaded CSV with historical Powerball data (overwritten on each run).
 - `README.md`: This documentation file.
 
