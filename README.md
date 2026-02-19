@@ -2,6 +2,8 @@
 
 A Python 3 script that generates Powerball lottery numbers using historical winning numbers from the Texas Lottery. The script downloads the latest Powerball CSV file, analyzes number frequencies, and generates "lucky" numbers weighted by their past occurrences.
 
+[![CI](https://github.com/256kMagic/LuckyNumbers/actions/workflows/ci.yml/badge.svg)](https://github.com/256kMagic/LuckyNumbers/actions/workflows/ci.yml)
+
 ## Features
 - Downloads the latest `powerball.csv` from the Texas Lottery website.
 - Supports variable CSV formats (with or without Power Play) from February 3, 2010, to the present.
